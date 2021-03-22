@@ -1,7 +1,7 @@
 import java.util.Vector;
 
 /**
- * Service
+ * Class for creating Service Objects
  */
 public class Service {
     public static final int MAX_CITIZENS=100;
@@ -14,6 +14,12 @@ public class Service {
     private Vector<Citizen> listOfCitizens;
     private Vector<VaccinationCenter> listOfVaccinationCenters;
 
+    /**
+     * Constructor
+     * @param name
+     * @param url
+     * @param duration
+     */
     public Service(String name,String url,int duration) {
         this.name=name;
         this.url=url;
@@ -22,6 +28,7 @@ public class Service {
         listOfCitizens=new Vector<Citizen>();
         listOfVaccinationCenters=new Vector<VaccinationCenter>();
     }
+    //Getters and Setters for each member variable
     public String getName() {
         return name;
     }
@@ -74,6 +81,10 @@ public class Service {
         }
         return null;
     }
+    /**
+     * Search and print all Radevus by citizens amka (id)
+     * @param amka
+     */
     public boolean searchByAmka(int amka){
         boolean found=false;
         for(int i=0;i<listOfVaccinationCenters.size();i++){
@@ -87,6 +98,10 @@ public class Service {
         }
         return found;
     }
+    /**
+     * Search and print all Radevus at a specific Center. Pick center by id
+     * @param kek
+     */
 	public void searchByCenterId(int kek) {
         VaccinationCenter vCenter=searchCenter(kek);
         if (vCenter==null){
@@ -95,6 +110,10 @@ public class Service {
         }
         vCenter.printAppointments();
 	}
+    /**
+     * Search and print all Radevus of a specific Doctor. Pick doctor by id
+     * @param id
+     */
     public void searchByDoctor(int id){
         for(int i=0;i<listOfVaccinationCenters.size();i++){
             VaccinationCenter vCenter= listOfVaccinationCenters.get(i);

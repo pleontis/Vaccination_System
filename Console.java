@@ -2,16 +2,20 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * Class with main method for printing menu to user
+ */
 public class Console {
     static Scanner scanner = new Scanner(System.in);
     static Service service;
     static Random ran= new Random();
     public static void main(String[] args) {
+        //Create a new System and initialize it with data
         service = new Service("National Vaccination Program", "gov.gr", 7);
         initializeService();
         int uOption=0;
         
+        //Keep printing menu to user until Exit option is selected
         while(uOption!=9){
             printMenu();
             System.out.println("-------------------------------------------------");
@@ -55,6 +59,9 @@ public class Console {
             }
         }
     }
+    /**
+     * Type Data for creating a new Citizen
+     */
     public static void addCitizen(){
         System.out.println("Enter Citizen's Amka: ");
         int amka=scanner.nextInt();
@@ -68,6 +75,9 @@ public class Console {
         service.addCitizen(new Citizen(amka, fullName, city));
         System.out.println("Citizen was registrated");
     }
+    /**
+     * Type Data for creating a new Vaccination Center
+     */
     public static void addVacCenter(){
         System.out.println("Enter Center's Id (5 digits): ");
         int kek=scanner.nextInt();
@@ -81,6 +91,9 @@ public class Console {
         service.addCenter(new VaccinationCenter(kek, title, city));
         System.out.println("Vaccination Center was registrated");
     }
+    /**
+     * Type Data for creating a new Doctor
+     */
     public static void addDoctor(){
         System.out.println("Enter Doctor's Id: ");
         int id=scanner.nextInt();
@@ -100,6 +113,12 @@ public class Console {
             System.out.println("Doctor was registrated");
         }
     }
+    /**
+     * Creating a new Appointment. 
+     * Enter Citizen's id and find him into CitizenList. 
+     * Print all available Vaccination Centers and pick one. 
+     * Schedule a Radevu for a specific Center and add Radevu at each object's List
+     */
     public static void addAppointment(){
         System.out.println("Enter Citizen's Amka: ");
         int amka=scanner.nextInt();
@@ -130,6 +149,9 @@ public class Console {
             }
         }
     }
+    /**
+     * Case 5 of menu's. User types with which key he wants to search and print all Appointments
+     */
     public static void searchAppointByKey(){
         System.out.println("Search an appointment by: ");
         System.out.println("                          1.Citizen's Amka");
@@ -159,7 +181,6 @@ public class Console {
                 break;
         }
     }
-
     public static void printMenu() {
 		System.out.println("                 "+service.getName());
 		System.out.println("===============================================================");
@@ -174,6 +195,9 @@ public class Console {
         System.out.println("9.Exit menu....................................................");
 		System.out.println("===============================================================");
 	}
+    /**
+     * Initialize System with data given
+     */
     public static void initializeService() {
         service.addCitizen(new Citizen(11111111, "Asfalismenos 1", "XANIA"));
         service.addCitizen(new Citizen(22222222, "Asfalismenos 2", "XANIA"));

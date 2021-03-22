@@ -1,3 +1,6 @@
+/**
+ * Class for creating citizen Objects
+ */
 public class Citizen {
     private int amka;
     private String fullName;
@@ -5,12 +8,18 @@ public class Citizen {
 
     private Appointment appointment;
     
+    /**
+     * Constructor
+     * @param amka
+     * @param fullName
+     * @param city
+     */
     public Citizen(int amka, String fullName, String city) {
         this.amka = amka;
         this.fullName = fullName;
         this.city = city;
     }
-
+    //Getters and Setters for each member variable
     public int getAmka() {
         return amka;
     }
@@ -35,6 +44,7 @@ public class Citizen {
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
+
     public void print(){
         System.out.println("Amka: "+getAmka()+", Full Name: "+getFullName()+", City: "+getCity());
     }

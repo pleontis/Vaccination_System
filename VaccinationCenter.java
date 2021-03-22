@@ -3,9 +3,8 @@ import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.Vector;
 
-
 /**
- * VaccinationCenter
+ * Class for creating VaccinationCenter Objects
  */
 public class VaccinationCenter {
     public static final int MAX_DOCTORS=5;
@@ -17,59 +16,49 @@ public class VaccinationCenter {
     private String city;
     
     private Vector<Doctor> listOfDoctors;
-    private Vector<Doctor> listOfvaccineDoctors;
     private Vector<Appointment> listOfAppointments;
 
-
+    /**
+    * Constructor 
+    * @param kek
+    * @param title
+    * @param city
+    */
     public VaccinationCenter(int kek, String title, String city) {
         this.kek=kek;
         this.title=title;
         this.city=city;
 
         this.listOfDoctors=new Vector<Doctor>();
-        this.listOfvaccineDoctors = new Vector<Doctor>();
         this.listOfAppointments=new Vector<Appointment>();
 
     }
-
+    //Getters and Setters for each member variable
     public int getKek() {
         return kek;
     }
-
     public String getCity() {
         return city;
     }
-
     public String getTitle() {
         return title;
     }
-
     public void setKek(int kek) {
         this.kek = kek;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
-
     public Vector<Doctor> getListOfDoctors() {
         return listOfDoctors;
-    }
-
-    public void setListOfDoctors(Vector<Doctor> listOfDoctors) {
-        this.listOfDoctors = listOfDoctors;
-    }
-
-    public Vector<Doctor> getvaccineDoctors() {
-        return listOfvaccineDoctors;
     }
     public Vector<Appointment> getListOfAppointments() {
         return listOfAppointments;
     }
+
     public void addDoctor(Doctor doctor){
         if(listOfDoctors.size()<MAX_DOCTORS){
             listOfDoctors.add(doctor);
@@ -94,6 +83,14 @@ public class VaccinationCenter {
         }
         System.out.println("Sorry there is not any space for a new Appointment registration");
     }
+    /**
+     * Method for making a new Radevu. Get the Date and Time from user and locate a specific
+     * slot into Center's Schedule. Find an available Doctor and make a Radevu.
+     * @param id
+     * @param citizen
+     * @param vCenter
+     * @return Appointment or null if could not schedule
+     */
     public Appointment makeAppointment(int id,Citizen citizen,VaccinationCenter vCenter){
         Appointment appointment=null;
         
@@ -166,6 +163,10 @@ public class VaccinationCenter {
     public void print(){
         System.out.println("Kek: "+getKek()+", Title: "+getTitle()+", City: "+getCity());
     }
+    /**
+     * Search into list of Doctors and find the one with less Radevus scheduled
+     * @return Doctor or null if could not find
+     */
     public Doctor findAvailDoctor(){
         Doctor tempDoctor=null;
         if(!listOfDoctors.isEmpty()){

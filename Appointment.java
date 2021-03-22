@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
 /**
- * Appointment
+ * Class for creating Appointment Objects
  */
 public class Appointment {
 
@@ -12,6 +12,15 @@ public class Appointment {
     private VaccinationCenter vCenter;
     private Doctor doctor;
 
+    /**
+     * Constructor
+     * @param id
+     * @param day
+     * @param time
+     * @param citizen
+     * @param vCenter
+     * @param doctor
+     */
     public Appointment(int id, LocalDate day,LocalTime time, Citizen citizen, VaccinationCenter vCenter, Doctor doctor) {
         this.id=id;
         this.day=day;
@@ -20,6 +29,7 @@ public class Appointment {
         this.vCenter=vCenter;
         this.doctor=doctor;
     }
+    //Getters and Setters for each member variable
     public int getId() {
         return id;
     }
@@ -56,6 +66,7 @@ public class Appointment {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+
     public void printAppointment(){
         System.out.println("1.Appointment's Id: "+this.getId()+
                           "\n2.Citizen: "+this.citizen.getFullName()+
