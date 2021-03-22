@@ -6,6 +6,7 @@ import java.util.Scanner;
  * Class with main method for printing menu to user
  */
 public class Console {
+    //Use Scanner class for reading from System.in user's options
     static Scanner scanner = new Scanner(System.in);
     static Service service;
     static Random ran= new Random();
