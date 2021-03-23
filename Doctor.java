@@ -22,7 +22,7 @@ public class Doctor {
         listOfAppointments=new Vector<Appointment>();
         this.numOfAppointments=0;
     }
-    //Getters and Setter for each member variable
+    //Getters and Setters for each member variable
     public int getId() {
         return id;
     }
